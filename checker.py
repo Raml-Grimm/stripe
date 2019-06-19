@@ -82,8 +82,8 @@ class StripeChecker():
         time.sleep(0.6)
         while True:
             print("                   [SELECT OPTIONS]")
-            print("┃          [1]    =   Merchant 1 (Stripe)        ┃")
-            print("┃          [2]    =   Merchant 2 (Stripe High Bal)      ┃ ")
+            print("┃      [1]    =   Merchant 1 (Stripe)          ┃")
+            print("┃      [2]    =   Merchant 2 (Stripe High Bal) ┃ ")
             print("")
             try:
                 option = str(input(colorama.Fore.LIGHTRED_EX + '[Select] > ' + colorama.Fore.RESET))
@@ -383,7 +383,7 @@ class StripeChecker():
 
             try:
                 error = stripe_response['error']
-                print(colorama.Fore.RED + "DEAD    ---[" + str(credit_entry) + "]---    " + credit_card + "\tReason: " + error['message'] + ' / DETECTED AS FRAUD!')
+                print(colorama.Fore.RED + "DEAD    ---[" + str(credit_entry) + "]---    " + credit_card + "\tReason: " + error['message'] + ' / live but incorrect cvv')
                 continue
             except KeyError:
                 tok_id = stripe_response['id']
