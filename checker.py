@@ -42,7 +42,7 @@ class StripeChecker():
         print("      {}--= {}Created by Bloodhub {}=--          ".format(fg[0], fg[1], fg[0]))
         print("  {}------============================------\n".format(fg[0]))
 
-        if not os.path.exists('live_cc.txt'):
+                if not os.path.exists('live_cc.txt'):
             with open('live_cc.txt', 'w+') as lives:
                 lives.write('--- LIVE CC ---\n')
                 lives.close()
@@ -82,11 +82,11 @@ class StripeChecker():
         time.sleep(0.6)
         while True:
             print("                   [SELECT OPTIONS]")
-            print("┃      [1]    =   Merchant 1 (Stripe)          ┃")
-            print("┃      [2]    =   Merchant 2 (Stripe High Bal) ┃ ")
+            print("┃          [1]    =   Gateway 1                 ┃")
+            print("┃          [2]    =   Gateway 1 (High Bal)      ┃ ")
             print("")
             try:
-                option = str(input(colorama.Fore.LIGHTRED_EX + '[Select] > ' + colorama.Fore.RESET))
+                option = str(input(colorama.Fore.LIGHTRED_EX + '[kschecker] >>> ' + colorama.Fore.RESET))
             except KeyboardInterrupt:
                 break   
 
@@ -178,9 +178,9 @@ class StripeChecker():
                 'card[name]': Username,
                 'card[address_zip]': 'zipcode',
                 'time_on_page': random.randint(10000, 100000),
-                'guid': 'bcf060d9-5ed8-4d99-a26c-7b4755bc9d0a',
-                'muid': 'edc67437-39af-4529-90c5-961e2e4539d9',
-                'sid': '199fb880-34de-43a2-adbe-ed5416b2638b',
+                'guid': '7745e9e2-dd6a-4714-8611-2b58a9058a31',
+                'muid': '87094644-e1c0-4d6c-a12b-366cadfcac5b',
+                'sid': 'ab5272e9-ebc6-4d8e-bf19-8935474e3b24',
                 'key': 'pk_live_rNZDiQC7uiGPhITHRODSIkOw'
             }
 
