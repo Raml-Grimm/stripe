@@ -38,8 +38,8 @@ class StripeChecker():
         self.gateway1Purchase = "https://closedlooplabs.com/purchase"
         self.stripe_tokens = "https://api.stripe.com/v1/tokens"
 
-        print("\n\n  {}------=[ {}KARDER SOCIETY CHECKER {}]=------".format(fg[0], fg[1], fg[0]))
-        print("      {}--= {}Created by KarderSociety {}=--          ".format(fg[0], fg[1], fg[0]))
+        print("\n\n  {}------=[ {}BloodHub Premium Mass Checker {}]=------".format(fg[0], fg[1], fg[0]))
+        print("      {}--= {}Created by Bloodhub {}=--          ".format(fg[0], fg[1], fg[0]))
         print("  {}------============================------\n".format(fg[0]))
 
         if not os.path.exists('live_cc.txt'):
@@ -86,7 +86,7 @@ class StripeChecker():
             print("┃          [2]    =   Merchant 2 (Stripe High Bal)      ┃ ")
             print("")
             try:
-                option = str(input(colorama.Fore.LIGHTRED_EX + '[kschecker] >>> ' + colorama.Fore.RESET))
+                option = str(input(colorama.Fore.LIGHTRED_EX + '[Select] > ' + colorama.Fore.RESET))
             except KeyboardInterrupt:
                 break   
 
