@@ -39,8 +39,8 @@ class StripeChecker():
         self.stripe_tokens = "https://api.stripe.com/v1/tokens"
 
         print("\n\n  {}------=[ {}BloodHub Premium Mass Checker {}]=------".format(fg[0], fg[1], fg[0]))
-        print("      {}--= {}Created by Bloodhub {}=--          ".format(fg[0], fg[1], fg[0]))
-        print("  {}------============================------\n".format(fg[0]))
+        print("      {}          --= {}Created by Bloodhub {}=--          ".format(fg[0], fg[1], fg[0]))
+        print("       {}------============================------\n".format(fg[0]))
 
         if not os.path.exists('live_cc.txt'):
             with open('live_cc.txt', 'w+') as lives:
@@ -82,11 +82,11 @@ class StripeChecker():
         time.sleep(0.6)
         while True:
             print("                   [SELECT OPTIONS]")
-            print("┃          [1]    =   Gateway 1                 ┃")
-            print("┃          [2]    =   Gateway 1 (High Bal)      ┃ ")
+            print("┃      [1]    =   Gateway 1 (Medium 10$)        ┃")
+            print("┃      [2]    =   Gateway 2 (High Bal 70$)      ┃ ")
             print("")
             try:
-                option = str(input(colorama.Fore.LIGHTRED_EX + '[kschecker] >>> ' + colorama.Fore.RESET))
+                option = str(input(colorama.Fore.LIGHTRED_EX + '[Select Merchant] > ' + colorama.Fore.RESET))
             except KeyboardInterrupt:
                 break   
 
@@ -449,5 +449,4 @@ CreditCard: {}
         print(fg[3] + "[*]" + reset + " Checking Done! " + str(len(cc_list)))
         input("PRESS ANY KEY TO EXIT GATEWAY 2")
         print()
-
 StripeChecker()
