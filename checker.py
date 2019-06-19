@@ -42,7 +42,7 @@ class StripeChecker():
         print("      {}--= {}Created by Bloodhub {}=--          ".format(fg[0], fg[1], fg[0]))
         print("  {}------============================------\n".format(fg[0]))
 
-                if not os.path.exists('live_cc.txt'):
+        if not os.path.exists('live_cc.txt'):
             with open('live_cc.txt', 'w+') as lives:
                 lives.write('--- LIVE CC ---\n')
                 lives.close()
